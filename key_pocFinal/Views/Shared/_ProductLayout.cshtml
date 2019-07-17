@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    <style>
+        #layoutBar {
+            background: #56CCF2; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #1270C1, white); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #1270C1, White); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+    </style>
+</head>
+<body>
+    <div id="layoutBar">
+        <div class="row" style="height:90px;">
+            <div class="col-sm-3">
+                <h1 class="display-4" style="margin-left:20px;font-weight: 500;">
+                    Joole
+                </h1>
+            </div>
+            <div class="col-sm-6">
+                @{
+                    var searchEngine = new key_pocFinal.Service.productSearch(new key_pocFinal.Repository.unitOfWork(new key_pocFinal.DBEntity.KEY_TeamMVCEntities()));
+                    @Html.Partial("_SearchBar", searchEngine);
+                }
+            </div>
+            <div class="col-sm-3">
+                <img src="~/IMG/userIcon.png" style="height:60px; width:auto;margin: 3% 30%" />
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+</body>
+</html>
