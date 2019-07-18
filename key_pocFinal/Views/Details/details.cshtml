@@ -5,5 +5,215 @@
     Layout = "~/Views/Shared/_ProductLayout.cshtml";
 }
 
-<h2>details</h2>
+<style>
+    .Data {
+        background-color: lightgray;
+    }
+</style>
+
+<h3 style="color:midnightblue;">Product Summary</h3>
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <H5>DESCRIPTION</H5>
+            <table class="table">
+                <tr>
+                    <td class="Data"><strong>Manufacture</strong></td>
+                    <td>@Model.getProduct().tblProductDescription.Manufacture</td>
+                </tr>
+                <tr>
+                    <td class="Data"><strong>Series</strong></td>
+                    <td>@Model.getProduct().tblProductDescription.Series</td>
+                </tr>
+                <tr>
+                    <td class="Data"><strong>Model</strong></td>
+                    <td>@Model.getProduct().tblProductDescription.Model</td>
+                </tr>
+            </table>
+            <hr>
+            <H5>TYPE</H5>
+            <table class="table">
+                <tr>
+                    <td class="Data"><strong>Use Type</strong></td>
+                    <td>@Model.getProduct().tblProductType.UseType</td>
+                </tr>
+                <tr>
+                    <td class="Data"><strong>Application</strong></td>
+                    <td>@Model.getProduct().tblProductType.Application</td>
+                </tr>
+                <tr>
+                    <td class="Data"><strong>Mounting Location</strong></td>
+                    <td>@Model.getProduct().tblProductType.MountingLocation</td>
+                </tr>
+                <tr>
+                    <td class="Data"><strong>Accessories</strong></td>
+                    <td>@Model.getProduct().tblProductType.Accessories</td>
+                </tr>
+                <tr>
+                    <td class="Data"><strong>Model Year</strong></td>
+                    <td>@Model.getProduct().tblProductType.ModelYear</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+
+            <H5>TECHNICAL SPECIFICATIONS</H5>
+            <table class="table">
+                @if (@Model.getProduct().tblTechnicalSpec.AirFlow != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Air Flow(CFM)</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.AirFlow</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+                @if (@Model.getProduct().tblTechnicalSpec.MinPow != null && @Model.getProduct().tblTechnicalSpec.MaxPow != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Power(W)</strong></td>
+                        <td class="Data"><strong>Min</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MinPow</td>
+                        <td class="Data"><strong>Max</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MaxPow</td>
+                    </tr>
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.MinOV != null && @Model.getProduct().tblTechnicalSpec.MaxOV != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Operating Voltage(VAC)</strong></td>
+                        <td class="Data"><strong>Min</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MinOV</td>
+                        <td class="Data"><strong>Max</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MaxOV</td>
+                    </tr>
+                }
+                @if (@Model.getProduct().tblTechnicalSpec.MinRPM != null && @Model.getProduct().tblTechnicalSpec.MaxRPM != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Fan Speed(W)</strong></td>
+                        <td class="Data"><strong>Min</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MinRPM</td>
+                        <td class="Data"><strong>Max</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MaxRPM</td>
+                    </tr>
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.NumberFanSpeed != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Number of Fan Speeds</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.NumberFanSpeed</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.dB != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Sound at Max Speed(dBA)</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.dB</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.FanSweepDiameter != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Fan Sweep Diameter (in)</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.FanSweepDiameter</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+                @if (@Model.getProduct().tblTechnicalSpec.MinHeight != null && @Model.getProduct().tblTechnicalSpec.MaxHeight != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Height(in)</strong></td>
+                        <td class="Data"><strong>Min</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MinHeight</td>
+                        <td class="Data"><strong>Max</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.MaxHeight</td>
+                    </tr>
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.Weight != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Weight (lbs)</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.Weight</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.Min_Pumping_Speed != null && @Model.getProduct().tblTechnicalSpec.Max_Pumping_Speed != null)
+                {
+
+                    <tr>
+                        <td class="Data"><strong>Pumping Speed</strong></td>
+                        <td class="Data"><strong>Min</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.Min_Pumping_Speed</td>
+                        <td class="Data"><strong>Max</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.Max_Pumping_Speed</td>
+                    </tr>
+
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.Hose != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Hose</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.Hose</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+
+                @if (@Model.getProduct().tblTechnicalSpec.dustCapcity != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Dust Capacity</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.dustCapcity</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+                @if (@Model.getProduct().tblTechnicalSpec.multipleToastSetting != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Multiple Toast Setting</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.multipleToastSetting</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+                @if (@Model.getProduct().tblTechnicalSpec.cordLength != null)
+                {
+                    <tr>
+                        <td class="Data"><strong>Cord Lenght</strong></td>
+                        <td>@Model.getProduct().tblTechnicalSpec.cordLength</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    
+</div>
 

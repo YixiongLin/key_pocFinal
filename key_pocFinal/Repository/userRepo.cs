@@ -11,6 +11,10 @@ namespace key_pocFinal.Repository
         public userRepo(KEY_TeamMVCEntities db)
             : base(db) { }
 
+        public void RegisterUser(tblUser user)
+        {
+            Create(user);
+        }
         public KEY_TeamMVCEntities KEY_TeamMVCEntities
         {
             get { return _dbContext as KEY_TeamMVCEntities; }
