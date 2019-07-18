@@ -1,0 +1,58 @@
+﻿@model key_pocFinal.Models.user
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<div>
+    @using (Html.BeginForm("Authorize", "users", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td></td>
+                <td style="text-decoration:underline;">Joole Inc</td>
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(model => model.UserName)</td>
+                <td>@Html.EditorFor(model => model.UserName)</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Passcode)</td>
+                <td>@Html.EditorFor(model => model.Passcode)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.Passcode)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="name" value="Login" />
+                    <input type="reset" name="name" value="Clear" />
+                </td>
+
+            </tr>
+        </table>
+    }
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,54 @@
+﻿@model key_pocFinal.Service.productSearch
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+@using (Html.BeginForm("displayProductList", "Users", FormMethod.Post, new { @class = "input-group mb-3", @id = "searchForm", @style = "width: 50%; margin: 25% auto 0 auto;" }))
+{
+    <div class="btn-group input-group-prepand">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Category
+        </button>
+        <div class="dropdown-menu">
+            @foreach (var category in Model.getAllCategories())
+            {
+                <a class="dropdown-item" href="@Url.Action("getSelectedCategory", "Users", new { id = category.CategoryID })" value="@category.CategoryID" id="category @category.CategoryID">@category.CategoryName</a>
+            }
+        </div>
+    </div>
+    <input id="subcategoryInput" name="userInputValue" placeholder="Search..." class="form-control rounded">
+    <button class="btn btn-primary" type="submit" style="margin-left:5px;"><i class="fas fa-search"></i></button>
+}
+
+
+<script type="text/javascript">
+    $("#subcategoryInput").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "/Users/GetSubcategories",
+                dataType: "json",
+                data: { Prefix: $("#subcategoryInput").val() },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return { label: item.SubCategoryName, value: item.SubCategoryName };
+                    }));
+                },
+                error: function (xhr, status, error) {
+                    alert("Error in autocomplete!");
+                }
+            });
+        }
+    });
+</script>
+
+
+@*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>>
+
