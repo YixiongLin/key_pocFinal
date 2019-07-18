@@ -1,0 +1,155 @@
+﻿@model key_pocFinal.Models.UserRegister
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<script type="text/javascript" src="~/Scripts/ImageScript.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<style>
+    div.card {
+        width: 500px;
+        height: 625px;
+        box-shadow: 0 15px 15px 0 rgba(0, 0, 0, 0.7), 0 15px 15px 0 rgba(0, 0, 0, 0.7);
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+    }
+
+    table {
+        border-spacing: 15px;
+        border-collapse: separate;
+    }
+
+    .avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+    }
+
+    .Heading {
+        margin-top: 30px;
+    }
+</style>
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="card">
+
+        <table align="center">
+            <!--IMAGE FILEPATH-->
+            <tr>
+                <td><h4>Register as a User</h4></td>
+            </tr>
+            <tr>
+                <td></td>
+
+                <td>
+                    <p>Image Preview</p>
+                    <img src="" id="ImagePreview" class="avatar">
+                    <p>Your Profile Pic</p>
+                    <input type="file" name="ImageFile" accept="image/*" onchange="ShowImagePreview(this, document.getElementById('ImagePreview'))" required />
+                </td>
+            </tr>
+
+
+            <!--USERNAME-->
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.UserName)
+                </td>
+
+                <td>
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "User Name" })
+                </td>
+
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "text text-danger" })
+                </td>
+            </tr>
+
+            <!--EMAIL-->
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Email)
+                </td>
+
+                <td>
+                    @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    @Html.ValidationMessageFor(model => model.Email, null, new { @class = "text text-danger" })
+                </td>
+            </tr>
+
+            <!--PASSWORD-->
+
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Passcode)
+                </td>
+                <td>
+                    @Html.PasswordFor(m => m.Passcode, new { placeholder = "Password" })
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    @Html.ValidationMessageFor(m => m.Passcode, null, new { @class = "text text-danger" })
+                </td>
+            </tr>
+
+            <!--CONFIRM PASSWORD-->
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.ConfirmPasscode)
+                </td>
+                <td>
+                    @Html.PasswordFor(m => m.ConfirmPasscode, new { placeholder = "Confirm Password" })
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan="2">
+                    @Html.ValidationMessageFor(m => m.ConfirmPasscode, null, new { @class = "text text-danger" })
+                </td>
+            </tr>
+
+            <!--SUBMIT AND RESET BUTTON-->
+            <tr>
+                <td></td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ValidationMessage("Error", null, new { @class = "text text-danger" })
+
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
