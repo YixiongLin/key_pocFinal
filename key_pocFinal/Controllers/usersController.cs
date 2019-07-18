@@ -95,6 +95,7 @@ namespace key_pocFinal.Controllers
             productList pl = new productList(new unitOfWork(new KEY_TeamMVCEntities()));
             pl.setDisplayList(outputList);
             pl.setSubcategoryID(searchEngine.getSubcategoryIDByName(userInputValue));
+            pl.setSubcategoryName(a);
             TempData["outputList"] = pl;
             return RedirectToAction("list", "Product");
         }

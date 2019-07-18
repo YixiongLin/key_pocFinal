@@ -13,7 +13,14 @@ namespace key_pocFinal.Repository
 
         public string getCategoryName(int id)
         {
-            return get(id).CategoryName;
+            if (get(id) != null)
+            {
+                return get(id).CategoryName;
+            }
+            else
+            {
+                return "no such product";
+            }
         }
         public KEY_TeamMVCEntities KEY_TeamMVCEntities
         {

@@ -20,7 +20,11 @@ namespace key_pocFinal.Controllers
             if (listEngine.getSubcategoryID() != 0)
             {
                 listEngine.setPropertyList(listEngine.getSubcategoryID());
-                listEngine.setSubcategoryName();
+                //listEngine.setSubcategoryName();
+                if(listEngine.getSubcategoryName() == null)
+                {
+                    listEngine.setSubcategoryName(listEngine.getUOW().getSubCategoryRepo().getSubcategoryNameByID(listEngine.getSubcategoryID()));
+                }
                 productList = listEngine.getProductsList();
             }
             return View(listEngine);
