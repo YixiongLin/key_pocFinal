@@ -5,5 +5,301 @@
     Layout = "~/Views/Shared/_ProductLayout.cshtml";
 }
 
-<h2>compare</h2>
+<p>@Model.getCategoryName() < @Model.getSubcategoryName() < compare </p>
+<h1>Product Comparison</h1>
+<table class="table table-borderless">
+    <tr>
+        <td style="border: 1px solid black; background-color:white;"></td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;">
+                    <img src="@product.ProductImage" style="width:150px; height:150px;" class="text-center" />
+                </td>
+            }
+        }
+    </tr>
+    <tr style="border: 1px solid black; background-color:lightgrey;">
+        <td style="font-weight:bold;">DESCRIPTION</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Manufacture</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblProductDescription.Manufacture
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Series</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black; text-align:center;">
+                    @product.tblProductDescription.Series
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Model</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black; text-align:center;">
+                    @product.tblProductDescription.Model
+                </td>
+            }
+        }
+    </tr>
+
+    <tr style="border: 1px solid black; background-color:lightgrey;">
+        <td style="font-weight:bold;">TYPE</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Use Type</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblProductType.UseType
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Application</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblProductType.Application
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Mounting Location</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblProductType.MountingLocation
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Accessories</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblProductType.Accessories
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Model Year</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblProductType.ModelYear
+                </td>
+            }
+        }
+    </tr>
+    <tr style="border: 1px solid black; background-color:lightgrey;">
+        <td style="font-weight:bold;">TECHNICAL SPECIFICATIONS</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Air Flow (CFM)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.AirFlow
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Min Power (W)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MinPow
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Max Power (W)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MaxPow
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Min Voltage (VAC)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MinOV
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Max Voltage (VAC)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MaxOV
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Min Fan Speed (RPM)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MinRPM
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Max Fan Speed (VAC)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MaxRPM
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Number of Fan Speed</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.NumberFanSpeed
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Sound at max speed (dBA)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.dB
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Fan Sweep Diameter (in)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MaxOV
+                </td>
+            }
+        }
+    </tr>
+
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Min Height (in)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MinHeight
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Max Height (in)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.MaxHeight
+                </td>
+            }
+        }
+    </tr>
+    <tr>
+        <td style="border: 1px solid black; background-color:lightgrey;">Weight (lbs)</td>
+        @foreach (var product in Model.getCompareList())
+        {
+            if (product.ProductTecSpecID == product.tblTechnicalSpec.ID)
+            {
+                <td style="border: 1px solid black;text-align:center;">
+                    @product.tblTechnicalSpec.Weight
+                </td>
+            }
+        }
+    </tr>
+</table>
 

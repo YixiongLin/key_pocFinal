@@ -12,6 +12,8 @@ namespace key_pocFinal.Service
         protected unitOfWork uow;
         protected List<tblProduct> products;
         protected tblProduct product;
+        protected string categoryName;
+        protected string subcategoryName;
         public productCompare(unitOfWork Uow)
         {
             uow = Uow;
@@ -21,7 +23,26 @@ namespace key_pocFinal.Service
         {
             products = list;
         }
+        
+        public void setCategoryName()
+        {
+            categoryName = uow.getCategoryRepo().getCategoryName(uow.getSubCategoryRepo().getCategoryID(products[0].ProductSubCategoryID));
+        }
 
+        public void setSubcategoryName()
+        {
+            subcategoryName = uow.getSubCategoryRepo().getSubcategoryNameByID(products[0].ProductSubCategoryID);
+        }
+
+        public string getCategoryName()
+        {
+            return categoryName;
+        }
+
+        public string getSubcategoryName()
+        {
+            return subcategoryName;
+        }
         public List<tblProduct> getCompareList()
         {
             return products;

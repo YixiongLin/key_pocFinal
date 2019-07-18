@@ -14,6 +14,11 @@ namespace key_pocFinal.Controllers
         public ActionResult compare()
         {
             pc = TempData["compareList"] as productCompare;
+            if(pc.getCompareList().Count > 0)
+            {
+                pc.setCategoryName();
+                pc.setSubcategoryName();
+            }
             return View(pc);
         }
     }
