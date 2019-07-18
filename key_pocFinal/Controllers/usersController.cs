@@ -47,6 +47,11 @@ namespace key_pocFinal.Controllers
             return RedirectToAction("Index", "users");
         }
 
+        public ActionResult register()
+        {
+            return RedirectToAction("Register", "Account");
+        }
+
         public ActionResult Search()
         {
             return View(searchEngine);
