@@ -82,12 +82,9 @@ namespace key_pocFinal.Service
         {
             return uow.getTsFilterRepo().getPropertyBySubcategoryID(id);
         }
-        public void setSubcategoryName()
+        public void setSubcategoryName(string name)
         {
-            if (subcategoryID != 0)
-            {
-                subcategoryName = uow.getSubCategoryRepo().getSubcategoryNameByID(subcategoryID);
-            }
+            subcategoryName = name;
         }
 
         public int getMaxValue(int subcategoryID, string property)

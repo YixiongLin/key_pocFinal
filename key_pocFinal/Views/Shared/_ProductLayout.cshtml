@@ -17,22 +17,23 @@
 <body>
     <div id="layoutBar">
         <div class="row" style="height:90px;">
-            <div class="col-sm-3">
-                <h1 class="display-4" style="margin-left:20px;font-weight: 500;">
-                    Joole
-                </h1>
+            <div class="col-12 col-sm-3">
+                <img src="~/IMG/Logo.png" style="height:100%;" />
             </div>
-            <div class="col-sm-6">
+            <div class="col-12 col-sm-6">
                 @{
                     var searchEngine = new key_pocFinal.Service.productSearch(new key_pocFinal.Repository.unitOfWork(new key_pocFinal.DBEntity.KEY_TeamMVCEntities()));
                     @Html.Partial("_SearchBar", searchEngine);
                 }
             </div>
-            <div class="col-sm-3">
+            <div class="col-12 col-sm-3">
                 <img src="~/IMG/userIcon.png" style="height:60px; width:auto;margin: 3% 30%" />
             </div>
         </div>
     </div>
-    @RenderBody()
+    <div>
+        @RenderBody()
+    </div>
+
 </body>
 </html>
